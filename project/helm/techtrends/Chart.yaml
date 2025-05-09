@@ -1,0 +1,8 @@
+apiVersion: v1
+name: techtrends
+description: A Helm chart for the TechTrends application
+keywords:
+  - techtrends
+version: 1.0.0
+maintainers:
+  - name: Daniel M.
