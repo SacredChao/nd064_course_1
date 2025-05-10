@@ -13,5 +13,5 @@ spec:
       valueFiles:
       - ../values-prod.yaml
     path: project/helm/techtrends
-    repoURL: hhttps://github.com/SacredChao/nd064_course_1
+    repoURL: https://github.com/SacredChao/nd064_course_1
     targetRevision: HEAD
