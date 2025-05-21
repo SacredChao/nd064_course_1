@@ -45,16 +45,22 @@ def index():
 def post(post_id):
     post = get_post(post_id)
     if post is None:
-      logger.info(f"No Article with ID {post_id}. Returning 404.")
-      return render_template('404.html'), 404
+        log_message = f"No Article with ID {post_id}. Returning 404."
+        print(log_message)
+        logger.error(log_message)
+        return render_template('404.html'), 404
     else:
-      logger.info(f"Article \"{post['title']}\" retrieved!")
-      return render_template('post.html', post=post)
+        log_message = f"Article \"{post['title']}\" retrieved!"
+        print(log_message)
+        logger.info(log_message)
+        return render_template('post.html', post=post)
 
 # Define the About Us page
 @app.route('/about')
 def about():
-    logger.info("The 'About Us' page was retrieved.")
+    log_message = "The 'About Us' page was retrieved."
+    print(log_message)
+    logger.info(log_message)
     return render_template('about.html')
 
 # Define the post creation functionality 
@@ -72,7 +78,9 @@ def create():
                          (title, content))
             connection.commit()
             connection.close()
-            logger.info(f"New article with title \"{title}\" created!")
+            log_message = f"New article with title \"{title}\" created!"
+            print(log_message)
+            logger.info(log_message)
             return redirect(url_for('index'))
 
     return render_template('create.html')
